@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 #espaço reservado para definir fuções
+ 
 def fazer_pedido(escolha):
     escolhido = list()
-while True:  
+    while True:  
         if escolha  == ("nao"):
                 print("perfeito, vamos proceder para o pagamento")
                 break
@@ -15,7 +16,7 @@ while True:
                 escolhido.append(escolha)
                 print("Mais alguma coisa?\n")
                 continue
-return(escolhido)
+        return(escolhido)
 #espaço reservado para definir funções
                 
                 
@@ -42,7 +43,7 @@ opcoes = cardapio.readlines()
 
 #
 while True:      
-	boas_vindas = str(input("Bem vindo ao iCantina! Neste maravilhoso app, você poderá pedir seus lanches sem que saia da sala. Digite Ola mundo para prosseguir!\n"))
+	boas_vindas = str(input("Bem vindo ao iCantina! Neste maravilhoso app, você poderá pedir seus lanches sem que saia da sala. Digite ppk para prosseguir!\n"))
 	login = int(input("Digite o seu numero de matricula:\n"))
 	if login in matriculas:            
 		print("Bem-vindo de volta! Abaixo está a lista de alimentos que estão prontos para serem entregues diretamente para você!\n")
@@ -55,6 +56,9 @@ while True:
 		print("\n Infelizmente não encontramos o seu número de matricula no sistema\n")
 		continue
 	break
+
+
+
 
 
 
