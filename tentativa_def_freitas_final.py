@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+from firebase import firebase
 escolhido = list()
 print("Bem vindo ao Icantina, o seu jeito de furar a fila!")
 #espaço reservado para definir fuções
@@ -14,8 +16,8 @@ def fazer_pedido(escolha):
             if escolha in opcoes:
                     print("Pedido realizado com sucesso:\n",escolha)
                     escolhido.append(escolha)
-                    print("Mais alguma coisa?\n")
-                    escolha = input(":")
+                    
+                    escolha = input("mais alguma coisa?\n ")
     return(escolhido)
 #espaço reservado para definir funções
                 
@@ -46,7 +48,7 @@ for o in opcoes:
 opcoes = opc2
 
 
-#
+#logica do programa
 while True:      
     login = int(input("Digite o seu numero de matricula:\n"))
     if login in matriculas:            
@@ -54,13 +56,27 @@ while True:
         
         for linha in opcoes:
             print(linha)    
-        escolha=str(input("Qual será a sua escolha?\n"))
+        escolha=str(input("digite o nome do produto\n"))
         fazer_pedido(escolha) 
     else:
         print("\n Infelizmente não encontramos o seu número de matricula no sistema\n")
         continue
     break
 
+
+
+#lançando dados online firebase
+FIREBASE_URL = "https://blinding-torch-8051.firebaseio.com/" 
+# Main
+if __name__ == '__main__':
+
+    fb = firebase.FirebaseApplication(FIREBASE_URL, None)
+
+    # Pergunta algum valor para o usuário
+    #data = input("Digite algum dado: ")
+    data = escolhido
+    # Escreve dados no Firebase
+    fb.put('/', "pedido", data)
 
 
 
