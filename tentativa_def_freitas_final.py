@@ -17,7 +17,7 @@ def fazer_pedido(escolha):
                         print("Pedido realizado com sucesso:\n",escolha)
                         escolhido.append(escolha)
                         achou = True
-                
+                        escolha = input("mais alguma coisa?")
             if achou == False:
                     print("Esta não é uma escolha válida! \n")
                     escolha = input(" Digite algo presente no cardápio")
@@ -50,10 +50,10 @@ opcoes = cardapio.readlines()
 
 opc2 = []
 for o in opcoes:
-	opc2.append(o.strip().split(","))
+    opc2.append(o.strip().split(","))
 
 opcoes = opc2
-print(opc2)
+
 
 #logica do programa
 while True:      
