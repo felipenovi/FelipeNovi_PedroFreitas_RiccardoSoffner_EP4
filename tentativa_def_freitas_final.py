@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from firebase import firebase
+
+
 escolhido = list()
 print("Bem vindo ao Icantina, o seu jeito de furar a fila!")
 #espaço reservado para definir fuções
@@ -9,20 +11,25 @@ def fazer_pedido(escolha):
             if escolha  == ("nao"):
                     print("perfeito, vamos proceder para o pagamento")
                     break
-            if escolha not in opcoes:
+            achou = False
+            for op in opcoes:
+                if escolha in op:
+                        print("Pedido realizado com sucesso:\n",escolha)
+                        escolhido.append(escolha)
+                        achou = True
+                        escolha = input("mais alguma coisa?")
+            if achou == False:
                     print("Esta não é uma escolha válida! \n")
                     escolha = input(" Digite algo presente no cardápio")
                     
-            if escolha in opcoes:
-                    print("Pedido realizado com sucesso:\n",escolha)
-                    escolhido.append(escolha)
+
                     
                     escolha = input("mais alguma coisa?\n ")
     return(escolhido)
 #espaço reservado para definir funções
                 
                 
-                
+            
 #abrindo arquivo do excel
 arquivo = open("aluno.csv")
 linha1 = arquivo.readline()
@@ -43,8 +50,8 @@ opcoes = cardapio.readlines()
 
 opc2 = []
 for o in opcoes:
-	opc2.append(o.strip())
-	
+    opc2.append(o.strip().split(","))
+
 opcoes = opc2
 
 
