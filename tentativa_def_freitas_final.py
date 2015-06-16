@@ -6,6 +6,7 @@ pacote = list()
 escolhido = list()
 print("Bem vindo ao Icantina, o seu jeito de furar a fila!")
 #espaço reservado para definir fuções 
+
 #defininido pedido
 def fazer_pedido(escolha):
     while True:  
@@ -27,21 +28,21 @@ def fazer_pedido(escolha):
                     
                     escolha = input("mais alguma coisa?\n ")
     return(escolhido)
-				
-				
-				
-				
+                
+                
+                
+                
 # definindo pagamento
 def pagamento(cartao):
-	if len(cartao) == 4:
-		print("transação aceita, já estamos enviando o seu pedido, até a proxima")
-		pacote.append(cartao)
-	else:
-		print("numero de cartao invalido")
-		cartao = str(input("digite novamente"))
-		
-#espaço reservado para definir funções ^^
-                
+
+    while len(cartao) != 4:
+        print("numero de cartao invalido")
+        cartao = str(input("digite novamente"))
+    if len(cartao) == 4:
+        print("transação aceita, já estamos enviando o seu pedido, até a proxima")
+        pacote.append(cartao)
+      
+      
                 
             
 #abrindo arquivo do excel
@@ -80,7 +81,7 @@ while True:
         escolha=str(input("digite o nome do produto\n"))
         fazer_pedido(escolha) 
         cartao = str(input("digite o numero do cartao"))
-        pagamento(cartao)								
+        pagamento(cartao)                                
     else:
         print("\n Infelizmente não encontramos o seu número de matricula no sistema\n")
         continue
@@ -100,16 +101,4 @@ if __name__ == '__main__':
     data = (pacote,escolhido)
     # Escreve dados no Firebase
     fb.put('/', "matricula,cartao,pedido", data)
-
-
-
-
-	
-
-
-
-                          
-         
-            
-
     
